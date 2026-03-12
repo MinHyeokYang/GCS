@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>팀 소개</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="lab-container">
+    <img class="bg-image" src="./background.png" alt="배경 이미지">
+
+    <h1 class="main-title">TEAM PROFILE</h1>
+
+    <div class="monitor-screen">
+      <img id="character-silhouette" class="character-img active" src="" alt="실루엣">
+      <img id="character-color" class="character-img hidden" src="" alt="컬러 캐릭터">
+    </div>
+
+    <section id="info-panel" class="info-panel hidden">
+      <h2 id="member-name" class="member-name">이름</h2>
+
+      <div class="skills-container">
+        <div class="skill-section">
+          <h3 class="section-title strong">강점</h3>
+          <ul id="strengths-list" class="skill-list"></ul>
+        </div>
+
+        <div class="skill-section">
+          <h3 class="section-title weak">약점</h3>
+          <ul id="weaknesses-list" class="skill-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button id="prev-btn" type="button">이전</button>
+      <button id="reveal-btn" class="action-btn" type="button">정체 확인하기!</button>
+      <button id="next-btn" type="button">다음</button>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop preload="auto">
+    <source src="./bgm.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="./script.js"></script>
+</body>
+</html>
