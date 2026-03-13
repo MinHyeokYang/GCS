@@ -31,7 +31,7 @@ const teamData = [
         silhouette: "minhyuk/minhyuk_silhouette.png",
         image: "minhyuk/minhyuk.png",
         strengths: [
-            { name: "빛의장막", desc: "팀 진행이 흔들릴 순간을 미리 자료 정리와 공백 메우기로 차단하며, 팀 전체의 <strong>방어력을 100포인트 상승</strong>시킵니다." },
+            { name: "정화", desc: "긍정긍정 에너지로 , 팀원 전체 지침/피곤함/번아웃 <strong>상태이상 100% 치료.</strong>" },
             { name: "리프레쉬", desc: "의견 충돌이나 혼선 같은 팀 내 디버프를 털어내고 하나의 방향으로 정렬하여, 팀 전체의 <strong>협동 공격력을 1.5배 증가</strong>시킵니다." },
             { name: "철벽", desc: "철저한 사전 점검과 준비로 실수 가능성을 낮추며, 마감 직전 결과물의 <strong>방어력을 200 증가</strong>시키고 <strong>적의 공격을 한 번 무효화</strong>합니다." }
         ],
