@@ -1,0 +1,30 @@
+﻿[2026-04-06T02:59:53.585Z] [INFO] [client] NotebookLMClient initialized
+⠋ Adding text source: src_debate_json
+⠙ Adding text source: src_debate_json
+⠹ Adding text source: src_debate_json
+⠸ Adding text source: src_debate_json
+⠼ Adding text source: src_debate_json
+⠴ Adding text source: src_debate_json
+⠦ Adding text source: src_debate_json
+⠧ Adding text source: src_debate_json
+⠇ Adding text source: src_debate_json
+⠏ Adding text source: src_debate_json
+⠋ Adding text source: src_debate_json
+⠙ Adding text source: src_debate_json
+⠹ Adding text source: src_debate_json
+⠸ Adding text source: src_debate_json
+⠼ Adding text source: src_debate_json
+⠴ Adding text source: src_debate_json
+⠦ Adding text source: src_debate_json
+⠧ Adding text source: src_debate_json
+⠇ Adding text source: src_debate_json
+⠏ Adding text source: src_debate_json
+⠋ Adding text source: src_debate_json
+⠙ Adding text source: src_debate_json
+⠹ Adding text source: src_debate_json
+⠸ Adding text source: src_debate_json
+⠼ Adding text source: src_debate_json
+⠴ Adding text source: src_debate_json
+                                     
+✓ Added source: Untitled
+ID: 869afd2b-3b2d-45f1-8efa-bf8ca0ccc43f

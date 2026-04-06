@@ -1,0 +1,134 @@
+﻿window.DEBATE_DATA = {
+    "pageTitle":  "AI 과학자의 부상: 기회인가, 위기인가?",
+    "subtitle":  "The AI Scientist와 scAInce 패러다임이 인간 과학 연구를 실질적으로 대체할 수 있는가",
+    "participants":  [
+                         {
+                             "id":  "p1",
+                             "name":  "참가자 1",
+                             "role":  "AI 자율 과학 연구 확대 지지"
+                         },
+                         {
+                             "id":  "mod",
+                             "name":  "사회자",
+                             "role":  "중재 및 요약"
+                         },
+                         {
+                             "id":  "p2",
+                             "name":  "참가자 2",
+                             "role":  "AI 자율 연구의 신중한 접근 주장"
+                         }
+                     ],
+    "highlights":  [
+                       "The AI Scientist는 논문 1편당 $15 미만 비용으로 아이디어 생성·실험·논문 작성까지 완전 자동화를 실증함",
+                       "Lila Sciences 등 스타트업이 AI 에이전트 기반 자율 실험실을 실제 운용 중이나 여전히 인간 승인 단계 존재",
+                       "재현성·감사 가능성·안전성 등 AI 자율 연구의 거버넌스 공백이 핵심 리스크로 부상",
+                       "scAInce 패러다임은 \u0027co-pilot → lab-pilot\u0027 전환을 예고하며 과학 연구 민주화 가능성을 열고 있음"
+                   ],
+    "debate":  [
+                   {
+                       "round":  1,
+                       "speaker":  "사회자",
+                       "type":  "moderation",
+                       "message":  "오늘 토론 주제는 \u0027The AI Scientist와 scAInce 패러다임이 인간 과학 연구를 실질적으로 대체할 수 있는가\u0027입니다. 찬성 측은 AI 자율 연구 확대를 지지하고, 반대 측은 신중한 접근을 주장합니다. 2024년 Sakana AI의 The AI Scientist 논문 발표, 2025년 Lila Sciences의 자율 실험실 운용 등 AI 과학 연구는 빠르게 현실화되고 있습니다. 양측 모두 입장을 명확히 밝혀 주십시오.",
+                       "sources":  [
+                                       "02_topic_overview.txt",
+                                       "07_ai_scientist_chris_lu.txt"
+                                   ]
+                   },
+                   {
+                       "round":  1,
+                       "speaker":  "참가자 1",
+                       "type":  "argument",
+                       "message":  "Sakana AI의 \u0027The AI Scientist\u0027는 아이디어 생성, 코드 작성, 실험 실행, 결과 시각화, 논문 작성, 자동 심사까지 과학 연구의 전 과정을 자동화했습니다. 논문 한 편당 15달러 미만으로 머신러닝 3개 분야에서 유효한 연구 결과를 도출했으며, 자동화된 리뷰어는 인간 수준에 근접한 평가 성능을 보였습니다. 이는 AI가 과학 연구의 핵심 단계를 독립적으로 수행할 수 있음을 실증한 첫 번째 종합적 사례입니다.",
+                       "sources":  [
+                                       "07_ai_scientist_chris_lu.txt"
+                                   ]
+                   },
+                   {
+                       "round":  1,
+                       "speaker":  "참가자 2",
+                       "type":  "argument",
+                       "message":  "The AI Scientist의 성과를 부정하지 않습니다. 그러나 MIT 테크놀로지 리뷰가 보도한 Lila Sciences의 자율 실험실 현장을 보면, AI가 실험 레시피를 결정하고 데이터를 분석하지만 \u0027사람이 직접 샘플을 옮기고 다음 단계를 승인\u0027합니다. AI의 제안을 인간이 검토하는 협업 구조가 현재의 실제 모습입니다. 완전한 대체는 아직 현실이 아닙니다.",
+                       "sources":  [
+                                       "04_mit_materials_discovery.txt"
+                                   ]
+                   },
+                   {
+                       "round":  2,
+                       "speaker":  "사회자",
+                       "type":  "moderation",
+                       "message":  "1라운드에서 자동화의 범위와 현실적 한계에 대한 입장 차이가 확인됐습니다. 2라운드에서는 기술 발전 속도와 거버넌스 측면으로 논의를 확장하겠습니다. AI 자율 연구가 가져올 기회와 위험에 대한 심화 논거를 말씀해 주십시오.",
+                       "sources":  [
+
+                                   ]
+                   },
+                   {
+                       "round":  2,
+                       "speaker":  "참가자 1",
+                       "type":  "argument",
+                       "message":  "OpenAI의 AGI 5단계 프레임워크에 따르면 우리는 현재 3단계 \u0027Agents\u0027 수준에 진입했고, 2026년에는 4단계 \u0027Innovators\u0027 진입이 예상됩니다. Claude 모델의 SWE-bench 점수가 2025년 한 해에만 9.8점에서 21.2점으로 116% 향상된 것처럼 발전 속도는 예상을 초월합니다. Hartung이 말한 \u0027co-pilot에서 lab-pilot으로의 전환\u0027은 이미 진행 중이며, scAInce 패러다임은 자율 문헌 합성·가설 생성·자가 구동 실험실을 현실로 만들고 있습니다.",
+                       "sources":  [
+                                       "03_topic_deepdive.txt",
+                                       "05_agentic_lab_automation.txt"
+                                   ]
+                   },
+                   {
+                       "round":  2,
+                       "speaker":  "참가자 2",
+                       "type":  "argument",
+                       "message":  "Frontiers in AI에 게재된 Hartung(2025) 리뷰는 이 전환이 \u0027극적인 효율성 향상을 약속하는 동시에 재현성, 감사 가능성, 안전성, 형평성 접근에 대한 우려를 증폭시킨다\u0027고 명시합니다. EU AI법과 ISO 42001 같은 거버넌스 체계가 아직 미완성인 상황에서 무감독 AI 연구는 치명적 오류를 낳을 수 있습니다. 특히 임상 연구 영역에서는 IRB 승인, 윤리 심사, 데이터 보호라는 인간 감독 단계가 법적·윤리적으로 필수이며 이는 자동화될 수 없습니다.",
+                       "sources":  [
+                                       "05_agentic_lab_automation.txt",
+                                       "06_mentor_material.txt"
+                                   ]
+                   },
+                   {
+                       "round":  3,
+                       "speaker":  "사회자",
+                       "type":  "moderation",
+                       "message":  "양측 논거를 정리합니다. 찬성 측은 실증된 성과와 기하급수적 기술 발전을 근거로 자율 연구 확대를 지지했고, 반대 측은 거버넌스 공백과 재현성·안전성 문제를 들어 신중론을 펼쳤습니다. 최종적으로 공통 합의 가능한 방향과 각자의 마무리 입장을 말씀해 주십시오.",
+                       "sources":  [
+
+                                   ]
+                   },
+                   {
+                       "round":  3,
+                       "speaker":  "참가자 1",
+                       "type":  "summary",
+                       "message":  "AI 자율 연구는 막을 수 있는 흐름이 아니라 설계해야 할 미래입니다. 저도 단계적 접근에는 동의합니다. The AI Scientist가 보여준 것처럼 저위험·고반복 연구(ML 실험, 신소재 탐색)부터 AI 자율화를 확대하고, 고위험 영역(임상시험, 규제 연구)에서는 인간 검증 레이어를 유지하는 것이 현실적입니다. 중요한 것은 변화를 막으려 하지 말고 안전하게 설계하는 것입니다.",
+                       "sources":  [
+                                       "07_ai_scientist_chris_lu.txt",
+                                       "05_agentic_lab_automation.txt"
+                                   ]
+                   },
+                   {
+                       "round":  3,
+                       "speaker":  "참가자 2",
+                       "type":  "summary",
+                       "message":  "\u0027AI materials discovery now needs to move into the real world\u0027라는 MIT TR의 제목이 상징하듯, 실험실 성과를 현실에 적용하려면 훨씬 더 많은 검증이 필요합니다. 저도 AI 과학 연구의 잠재력은 인정합니다. 다만 거버넌스 프레임워크 구축, 연구 재현성 보장, 형평성 있는 접근이 확보될 때 비로소 본격적 확대가 정당화됩니다. 기술이 사회를 앞서가지 않도록 속도 조절이 책임 있는 혁신의 핵심입니다.",
+                       "sources":  [
+                                       "04_mit_materials_discovery.txt",
+                                       "05_agentic_lab_automation.txt"
+                                   ]
+                   }
+               ],
+    "finalSummary":  {
+                         "consensus":  [
+                                           "AI는 이미 문헌 분석·코드 실행·결과 시각화 등 과학 연구의 특정 단계를 효과적으로 수행할 수 있다",
+                                           "완전 자율화보다 \u0027co-pilot → lab-pilot\u0027의 단계적 전환이 현실적이고 안전한 경로임에 양측 동의",
+                                           "AI 과학 연구 확대를 위해 EU AI법·ISO 42001 등 거버넌스 체계 정비가 기술 발전과 병행되어야 한다"
+                                       ],
+                         "openQuestions":  [
+                                               "AI가 생성한 연구 결과의 재현성과 감사 가능성을 어떻게 제도적으로 보장할 것인가?",
+                                               "AI 자율 실험실 확산 시 연구 자원 접근의 지역·기관 간 형평성 문제를 어떻게 해결할 것인가?",
+                                               "AI 과학자가 잘못된 가설을 반복 실행하는 \u0027자동화된 오류 증폭\u0027 리스크를 어떻게 탐지·통제할 것인가?"
+                                           ],
+                         "nextActions":  [
+                                             "The AI Scientist 원논문(arXiv:2408.06292)과 Hartung(2025) Frontiers in AI 리뷰를 직접 읽고 기술 현황 파악",
+                                             "Lila Sciences·AlphaFold 등 실제 AI 자율 연구 사례를 분석해 적용 가능한 도메인과 한계 식별",
+                                             "EU AI법·ISO 42001 등 AI 거버넌스 프레임워크를 학습하고 연구 윤리 가이드라인 수립 방향 논의"
+                                         ]
+                     }
+}
+;
+

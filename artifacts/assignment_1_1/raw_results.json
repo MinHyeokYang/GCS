@@ -1,0 +1,374 @@
+﻿[
+    {
+        "path":  "CLI",
+        "case_id":  "C1",
+        "case_name":  "List meeting rooms",
+        "duration_ms":  2947,
+        "input_tokens":  10,
+        "output_tokens":  1136,
+        "total_tokens":  1146,
+        "request_preview":  "{\"method\":\"GET\",\"path\":\"/meeting-rooms\"}",
+        "response_preview":  "[\r\n    {\r\n        \"id\":  1,\r\n        \"name\":  \"N.MR1\",\r\n        \"location\":  \"AIê´ 6ì¸µ North\",\r\n        \"description\":  \"ìµë 4ì¸\",\r\n        \"image_url\":  \"https://assets.1000",
+        "raw":  {
+                    "value":  [
+                                  {
+                                      "id":  1,
+                                      "name":  "N.MR1",
+                                      "location":  "AIê´ 6ì¸µ North",
+                                      "description":  "ìµë 4ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/n.mr1.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  2,
+                                      "name":  "N.MR2",
+                                      "location":  "AIê´ 6ì¸µ North",
+                                      "description":  "ìµë 4ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/n.mr2.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  3,
+                                      "name":  "N.MR3",
+                                      "location":  "AIê´ 6ì¸µ North",
+                                      "description":  "ìµë 8ì¸ íìíìì¤",
+                                      "image_url":  "https://assets.1000.school/meeting_room/n.mr3.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  4,
+                                      "name":  "S.MR1",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 4ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.mr1.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  5,
+                                      "name":  "S.MR2",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 4ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.mr2.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  6,
+                                      "name":  "S.MR3",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 6ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.mr3.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  7,
+                                      "name":  "N.FR1",
+                                      "location":  "AIê´ 6ì¸µ North",
+                                      "description":  "ìµë 1ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/n.fr1.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  8,
+                                      "name":  "N.FR2",
+                                      "location":  "AIê´ 6ì¸µ North",
+                                      "description":  "ìµë 1ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/n.fr2.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  9,
+                                      "name":  "S.FR1",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 1ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.fr1.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  10,
+                                      "name":  "S.FR2",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 1ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.fr2.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  11,
+                                      "name":  "S.FR3",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 1ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.fr3.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  12,
+                                      "name":  "S.FR4",
+                                      "location":  "AIê´ 6ì¸µ South",
+                                      "description":  "ìµë 1ì¸",
+                                      "image_url":  "https://assets.1000.school/meeting_room/s.fr4.png",
+                                      "created_at":  "2026-03-16T04:26:54.721253Z",
+                                      "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                  },
+                                  {
+                                      "id":  13,
+                                      "name":  "1íìì¤",
+                                      "location":  "ë³¸ê´ 3ì¸µ",
+                                      "description":  "ìµë 8ì¸ íìì¤",
+                                      "image_url":  null,
+                                      "created_at":  "2026-03-28T13:30:02.496050Z",
+                                      "updated_at":  "2026-03-28T13:30:02.496050Z"
+                                  },
+                                  {
+                                      "id":  14,
+                                      "name":  "2íìì¤",
+                                      "location":  "ë³¸ê´ 3ì¸µ",
+                                      "description":  "ìµë 12ì¸ íìì¤",
+                                      "image_url":  null,
+                                      "created_at":  "2026-03-28T13:30:02.496050Z",
+                                      "updated_at":  "2026-03-28T13:30:02.496050Z"
+                                  }
+                              ],
+                    "Count":  14
+                }
+    },
+    {
+        "path":  "MCP",
+        "case_id":  "C1",
+        "case_name":  "List meeting rooms",
+        "duration_ms":  788,
+        "input_tokens":  14,
+        "output_tokens":  1033,
+        "total_tokens":  1047,
+        "request_preview":  "{\"args\":{},\"tool\":\"gcs-pulse-bridge.list_meeting_rooms\"}",
+        "response_preview":  "{\r\n  \"status\": 200,\r\n  \"elapsed_ms\": 788,\r\n  \"data\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"N.MR1\",\r\n      \"location\": \"AI관 6층 North\",\r\n      \"description\": \"최대 4인\",\r\n      \"imag",
+        "raw":  {
+                    "status":  200,
+                    "elapsed_ms":  788,
+                    "data":  [
+                                 {
+                                     "id":  1,
+                                     "name":  "N.MR1",
+                                     "location":  "AI관 6층 North",
+                                     "description":  "최대 4인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/n.mr1.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  2,
+                                     "name":  "N.MR2",
+                                     "location":  "AI관 6층 North",
+                                     "description":  "최대 4인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/n.mr2.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  3,
+                                     "name":  "N.MR3",
+                                     "location":  "AI관 6층 North",
+                                     "description":  "최대 8인 화상회의실",
+                                     "image_url":  "https://assets.1000.school/meeting_room/n.mr3.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  4,
+                                     "name":  "S.MR1",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 4인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.mr1.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  5,
+                                     "name":  "S.MR2",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 4인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.mr2.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  6,
+                                     "name":  "S.MR3",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 6인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.mr3.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  7,
+                                     "name":  "N.FR1",
+                                     "location":  "AI관 6층 North",
+                                     "description":  "최대 1인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/n.fr1.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  8,
+                                     "name":  "N.FR2",
+                                     "location":  "AI관 6층 North",
+                                     "description":  "최대 1인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/n.fr2.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  9,
+                                     "name":  "S.FR1",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 1인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.fr1.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  10,
+                                     "name":  "S.FR2",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 1인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.fr2.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  11,
+                                     "name":  "S.FR3",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 1인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.fr3.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  12,
+                                     "name":  "S.FR4",
+                                     "location":  "AI관 6층 South",
+                                     "description":  "최대 1인",
+                                     "image_url":  "https://assets.1000.school/meeting_room/s.fr4.png",
+                                     "created_at":  "2026-03-16T04:26:54.721253Z",
+                                     "updated_at":  "2026-03-16T04:26:54.721253Z"
+                                 },
+                                 {
+                                     "id":  13,
+                                     "name":  "1회의실",
+                                     "location":  "본관 3층",
+                                     "description":  "최대 8인 회의실",
+                                     "image_url":  null,
+                                     "created_at":  "2026-03-28T13:30:02.496050Z",
+                                     "updated_at":  "2026-03-28T13:30:02.496050Z"
+                                 },
+                                 {
+                                     "id":  14,
+                                     "name":  "2회의실",
+                                     "location":  "본관 3층",
+                                     "description":  "최대 12인 회의실",
+                                     "image_url":  null,
+                                     "created_at":  "2026-03-28T13:30:02.496050Z",
+                                     "updated_at":  "2026-03-28T13:30:02.496050Z"
+                                 }
+                             ]
+                }
+    },
+    {
+        "path":  "CLI",
+        "case_id":  "C2",
+        "case_name":  "List room #1 reservations today",
+        "duration_ms":  583,
+        "input_tokens":  22,
+        "output_tokens":  94,
+        "total_tokens":  116,
+        "request_preview":  "{\"query\":{\"date\":\"2026-04-06\"},\"method\":\"GET\",\"path\":\"/meeting-rooms/1/reservations\"}",
+        "response_preview":  "{\r\n    \"id\":  176,\r\n    \"meeting_room_id\":  1,\r\n    \"reserved_by_user_id\":  28,\r\n    \"reserved_by_name\":  \"ê¹íí¸/ê²½ìíë¶\",\r\n    \"start_at\":  \"2026-04-06T08:30:00Z\",\r\n    \"",
+        "raw":  {
+                    "id":  176,
+                    "meeting_room_id":  1,
+                    "reserved_by_user_id":  28,
+                    "reserved_by_name":  "ê¹íí¸/ê²½ìíë¶",
+                    "start_at":  "2026-04-06T08:30:00Z",
+                    "end_at":  "2026-04-06T13:00:00Z",
+                    "purpose":  "í íì",
+                    "can_cancel":  false,
+                    "created_at":  "2026-04-04T07:48:21.300809Z",
+                    "updated_at":  "2026-04-04T07:48:21.300809Z"
+                }
+    },
+    {
+        "path":  "MCP",
+        "case_id":  "C2",
+        "case_name":  "List room #1 reservations today",
+        "duration_ms":  944,
+        "input_tokens":  23,
+        "output_tokens":  110,
+        "total_tokens":  133,
+        "request_preview":  "{\"args\":{\"room_id\":1,\"date\":\"2026-04-06\"},\"tool\":\"gcs-pulse-bridge.list_room_reservations\"}",
+        "response_preview":  "{\r\n  \"status\": 200,\r\n  \"elapsed_ms\": 944,\r\n  \"data\": [\r\n    {\r\n      \"id\": 176,\r\n      \"meeting_room_id\": 1,\r\n      \"reserved_by_user_id\": 28,\r\n      \"reserved_by_name\": \"김태호/경영학부\"",
+        "raw":  {
+                    "status":  200,
+                    "elapsed_ms":  944,
+                    "data":  [
+                                 {
+                                     "id":  176,
+                                     "meeting_room_id":  1,
+                                     "reserved_by_user_id":  28,
+                                     "reserved_by_name":  "김태호/경영학부",
+                                     "start_at":  "2026-04-06T08:30:00Z",
+                                     "end_at":  "2026-04-06T13:00:00Z",
+                                     "purpose":  "팀 회의",
+                                     "can_cancel":  false,
+                                     "created_at":  "2026-04-04T07:48:21.300809Z",
+                                     "updated_at":  "2026-04-04T07:48:21.300809Z"
+                                 }
+                             ]
+                }
+    },
+    {
+        "path":  "CLI",
+        "case_id":  "C3",
+        "case_name":  "List room #2 reservations today",
+        "duration_ms":  484,
+        "input_tokens":  22,
+        "output_tokens":  1,
+        "total_tokens":  23,
+        "request_preview":  "{\"query\":{\"date\":\"2026-04-06\"},\"method\":\"GET\",\"path\":\"/meeting-rooms/2/reservations\"}",
+        "response_preview":  "[]",
+        "raw":  {
+                    "value":  [
+
+                              ],
+                    "Count":  0
+                }
+    },
+    {
+        "path":  "MCP",
+        "case_id":  "C3",
+        "case_name":  "List room #2 reservations today",
+        "duration_ms":  474,
+        "input_tokens":  23,
+        "output_tokens":  15,
+        "total_tokens":  38,
+        "request_preview":  "{\"args\":{\"room_id\":2,\"date\":\"2026-04-06\"},\"tool\":\"gcs-pulse-bridge.list_room_reservations\"}",
+        "response_preview":  "{\r\n  \"status\": 200,\r\n  \"elapsed_ms\": 474,\r\n  \"data\": []\r\n}",
+        "raw":  {
+                    "status":  200,
+                    "elapsed_ms":  474,
+                    "data":  [
+
+                             ]
+                }
+    }
+]

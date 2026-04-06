@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Debate Landing</title>
+    <style>
+      :root {
+        --bg: #f4f6ef;
+        --ink: #1a1f16;
+        --muted: #5f6a58;
+        --card: #fffffb;
+        --line: #d8decf;
+        --p1: #246c5d;
+        --mod: #8b4f1f;
+        --p2: #2d4e9d;
+        --accent: #d8ea80;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "SUIT Variable", "Noto Sans KR", "Apple SD Gothic Neo",
+          sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at 10% -10%,
+            rgba(216, 234, 128, 0.5),
+            transparent 38%
+          ),
+          radial-gradient(
+            circle at 90% -10%,
+            rgba(36, 108, 93, 0.2),
+            transparent 32%
+          ),
+          var(--bg);
+      }
+
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 28px 18px 60px;
+      }
+
+      .hero {
+        background: linear-gradient(140deg, #172312 10%, #2f493a 60%, #385c49);
+        color: #f3f8ec;
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: 0 16px 40px rgba(23, 35, 18, 0.25);
+        animation: rise 0.5s ease-out both;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        line-height: 1.35;
+      }
+
+      .hero p {
+        margin: 12px 0 0;
+        color: #dce9d4;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .p-card {
+        background: #fffef8;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 14px;
+        padding: 12px 14px;
+      }
+
+      .p-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 4px 9px;
+        margin-bottom: 8px;
+        color: white;
+      }
+
+      .p-card h3 {
+        margin: 0 0 5px;
+        font-size: 1rem;
+      }
+
+      .p-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .section {
+        margin-top: 22px;
+        animation: rise 0.6s ease-out both;
+      }
+
+      .section h2 {
+        margin: 0 0 10px;
+        font-size: 1.15rem;
+      }
+
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .highlight {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 11px 12px;
+        font-size: 0.93rem;
+        line-height: 1.55;
+      }
+
+      .controls {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .filter-btn {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .filter-btn.active {
+        border-color: var(--ink);
+        background: var(--accent);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 11px;
+      }
+
+      .turn {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 13px 14px;
+      }
+
+      .turn-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .turn-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .round {
+        font-size: 0.72rem;
+        font-weight: 700;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        padding: 2px 8px;
+        background: #f5f8f0;
+      }
+
+      .speaker {
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .role-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--muted);
+        border: 1px dashed var(--line);
+        border-radius: 8px;
+        padding: 2px 7px;
+      }
+
+      .message {
+        margin: 10px 0 0;
+        line-height: 1.63;
+        font-size: 0.96rem;
+        white-space: pre-wrap;
+      }
+
+      .sources {
+        margin-top: 10px;
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+      }
+
+      .source-chip {
+        font-size: 0.74rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px 8px;
+        color: var(--muted);
+        background: #fcfef8;
+        text-decoration: none;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .summary-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px;
+      }
+
+      .summary-card h3 {
+        margin: 0 0 8px;
+        font-size: 0.96rem;
+      }
+
+      .summary-card ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .summary-card li {
+        margin-bottom: 6px;
+        line-height: 1.5;
+        font-size: 0.9rem;
+      }
+
+      .legend {
+        margin-top: 18px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .turn.p1 .speaker,
+      .p1 {
+        color: var(--p1);
+      }
+      .turn.mod .speaker,
+      .mod {
+        color: var(--mod);
+      }
+      .turn.p2 .speaker,
+      .p2 {
+        color: var(--p2);
+      }
+
+      .turn.hidden {
+        display: none;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .grid,
+        .summary-grid,
+        .highlights {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+        <div class="grid" id="participants"></div>
+      </section>
+
+      <section class="section">
+        <h2>핵심 포인트</h2>
+        <div class="highlights" id="highlights"></div>
+      </section>
+
+      <section class="section">
+        <h2>AI 토론 로그</h2>
+        <div class="controls">
+          <button class="filter-btn active" data-filter="all">전체 보기</button>
+          <button class="filter-btn" data-filter="참가자 1">참가자 1</button>
+          <button class="filter-btn" data-filter="사회자">사회자</button>
+          <button class="filter-btn" data-filter="참가자 2">참가자 2</button>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section">
+        <h2>사회자 최종 정리</h2>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <h3>합의된 지점</h3>
+            <ul id="consensus"></ul>
+          </article>
+          <article class="summary-card">
+            <h3>남은 질문</h3>
+            <ul id="openQuestions"></ul>
+          </article>
+          <article class="summary-card">
+            <h3>다음 액션</h3>
+            <ul id="nextActions"></ul>
+          </article>
+        </div>
+        <div class="legend">
+          출처 표기는 추출 텍스트 파일명(`artifacts/ai_debate_landing/pdf_text/*.txt`)을
+          기준으로 연결했습니다.
+        </div>
+      </section>
+    </div>
+
+    <script src="./debate_data.js"></script>
+    <script>
+      const data = window.DEBATE_DATA;
+      const q = (sel) => document.querySelector(sel);
+      const speakerClass = (speaker) => {
+        if (speaker === "참가자 1") return "p1";
+        if (speaker === "참가자 2") return "p2";
+        return "mod";
+      };
+
+      q("#title").textContent = data.pageTitle;
+      q("#subtitle").textContent = data.subtitle;
+
+      q("#participants").innerHTML = data.participants
+        .map((p) => {
+          const cls = p.id === "p1" ? "p1" : p.id === "p2" ? "p2" : "mod";
+          return `
+            <article class="p-card">
+              <span class="p-badge" style="background:${p.id === "p1" ? "var(--p1)" : p.id === "p2" ? "var(--p2)" : "var(--mod)"}">${p.name}</span>
+              <h3 class="${cls}">${p.role}</h3>
+              <p>ID: ${p.id}</p>
+            </article>
+          `;
+        })
+        .join("");
+
+      q("#highlights").innerHTML = data.highlights
+        .map((h) => `<article class="highlight">${h}</article>`)
+        .join("");
+
+      q("#timeline").innerHTML = data.debate
+        .map((turn, idx) => {
+          const cls = speakerClass(turn.speaker);
+          const roleLabel =
+            turn.type === "moderation"
+              ? "중재"
+              : turn.type === "summary"
+                ? "요약"
+                : "주장";
+
+          const sources = (turn.sources || [])
+            .map(
+              (s) =>
+                `<a class="source-chip" href="./pdf_text/${s}" target="_blank" rel="noreferrer">${s}</a>`,
+            )
+            .join("");
+
+          return `
+            <article class="turn ${cls}" data-speaker="${turn.speaker}" data-idx="${idx}">
+              <header class="turn-head">
+                <div class="turn-left">
+                  <span class="round">Round ${turn.round}</span>
+                  <span class="speaker">${turn.speaker}</span>
+                </div>
+                <span class="role-tag">${roleLabel}</span>
+              </header>
+              <p class="message">${turn.message}</p>
+              ${sources ? `<div class="sources">${sources}</div>` : ""}
+            </article>
+          `;
+        })
+        .join("");
+
+      const fillList = (selector, items) => {
+        q(selector).innerHTML = items.map((x) => `<li>${x}</li>`).join("");
+      };
+
+      fillList("#consensus", data.finalSummary.consensus || []);
+      fillList("#openQuestions", data.finalSummary.openQuestions || []);
+      fillList("#nextActions", data.finalSummary.nextActions || []);
+
+      const buttons = [...document.querySelectorAll(".filter-btn")];
+      const turns = [...document.querySelectorAll(".turn")];
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const key = btn.dataset.filter;
+          turns.forEach((el) => {
+            const match = key === "all" || el.dataset.speaker === key;
+            el.classList.toggle("hidden", !match);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

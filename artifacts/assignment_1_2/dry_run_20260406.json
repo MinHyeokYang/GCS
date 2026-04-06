@@ -1,0 +1,16 @@
+﻿{
+    "dry_run":  true,
+    "room":  "N.MR1",
+    "start_at":  "2026-04-12T10:00:00.0000000+09:00",
+    "end_at":  "2026-04-12T11:00:00.0000000+09:00",
+    "gws_auth":  null,
+    "reserved":  false,
+    "reservation":  null,
+    "calendar_event":  null,
+    "invite_email":  null,
+    "fallback_used":  false,
+    "rollback":  null,
+    "errors":  [
+                   "The remote name could not be resolved: \u0027api.1000.school\u0027"
+               ]
+}

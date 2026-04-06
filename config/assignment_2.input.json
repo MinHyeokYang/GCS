@@ -1,0 +1,45 @@
+{
+  "topic": "The AI OOO",
+  "subtitle": "Bootcamp Day 2 Assignment",
+  "language": "ko-KR",
+  "notebook_title": "Task2 - The AI OOO",
+  "sources": {
+    "urls": [],
+    "files": []
+  },
+  "research": {
+    "queries": [
+      "The AI OOO latest trends and key risks",
+      "The AI OOO practical adoption cases in education",
+      "The AI OOO opportunities vs governance concerns"
+    ],
+    "mode": "fast",
+    "auto_import": true,
+    "timeout_ms": 180000
+  },
+  "debate": {
+    "rounds": 3,
+    "personas": [
+      {
+        "name": "Agent-A",
+        "role": "Advocate",
+        "focus": "Growth and upside"
+      },
+      {
+        "name": "Agent-B",
+        "role": "Skeptic",
+        "focus": "Risk and constraints"
+      },
+      {
+        "name": "Agent-C",
+        "role": "Moderator",
+        "focus": "Evidence and decision"
+      }
+    ]
+  },
+  "presentation": {
+    "report_format": "briefing",
+    "slide_format": "presenter",
+    "slide_length": "default"
+  }
+}
