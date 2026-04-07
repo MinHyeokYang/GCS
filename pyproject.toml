@@ -1,0 +1,105 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+preview = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    # FastAPI Depends()는 default argument로 함수 호출 허용
+    "B008",
+    # __init__ return type 강제 안 함
+    "ANN204",
+    # D203 vs D211 충돌 (D211 선택)
+    "D203",
+    # D213 vs D212 충돌 (D212 선택)
+    "D213",
+    # ruff format과 충돌
+    "COM812",
+    "ISC001",
+    # boolean 파라미터 (FastAPI query param 등)
+    "FBT001",
+    "FBT002",
+    # 네임스페이스 패키지 금지 — FastAPI 프로젝트 구조와 충돌
+    "INP001",
+]
+
+# 파일별 예외
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "S101",    # assert 허용
+    "ANN",     # 테스트 타입힌트 강제 완화
+    "D",       # 테스트 docstring 강제 완화
+]
+"alembic/**/*.py" = [
+    "ANN",
+    "D",
+    "INP001",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+lines-after-imports = 2
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.flake8-type-checking]
+# Pydantic / SQLAlchemy 모델은 런타임에 평가됨
+runtime-evaluated-base-classes = [
+    "pydantic.BaseModel",
+    "sqlalchemy.orm.DeclarativeBase",
+]
+runtime-evaluated-decorators = [
+    "pydantic.validate_call",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+
+# ---------------------------------------------------------------------------
+# mypy
+# ---------------------------------------------------------------------------
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+plugins = [
+    "pydantic.mypy",
+    "sqlalchemy.ext.mypy.plugin",
+]
+
+# strict에 포함되지 않는 추가 엄격 옵션
+warn_unreachable = true
+strict_equality = true
+warn_unused_ignores = true
+
+exclude = [
+    "\\.venv/",
+    "alembic/",
+]
+
+[tool.pydantic-mypy]
+init_typed = true
+init_forbid_extra = true
+warn_required_dynamic_aliases = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+
+# ---------------------------------------------------------------------------
+# pytest
+# ---------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

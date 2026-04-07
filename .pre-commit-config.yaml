@@ -1,0 +1,47 @@
+repos:
+  # 기본 파일 검사
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-ast          # Python 문법 오류
+      - id: check-merge-conflict
+      - id: detect-private-key # 시크릿 키 커밋 방지
+
+  # Ruff — 린팅 (자동 수정 후 포매팅)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.6
+    hooks:
+      - id: ruff
+        args: [--fix, --force-exclude]
+      - id: ruff-format
+
+  # mypy — 타입 체크
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.15.0
+    hooks:
+      - id: mypy
+        pass_filenames: false   # 전체 프로젝트 검사
+        args: [--strict]
+        additional_dependencies:
+          - "pydantic"
+          - "pydantic[mypy]"
+          - "sqlalchemy[mypy]"
+          - "fastapi"
+          - "types-python-dateutil"
+
+  # pytest — push 전에만 실행 (commit마다 돌리면 너무 느림)
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]
