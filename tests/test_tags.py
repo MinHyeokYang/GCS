@@ -59,6 +59,24 @@ def test_list_tags(client: TestClient) -> None:
     assert len(res.json()) == 2
 
 
+def test_get_tag(client: TestClient) -> None:
+    """GET /teams/{id}/tags/{tag_id} returns one tag."""
+    _, team_id = _setup(client)
+    tag_id = _create_tag(client, team_id, "backend")
+    res = client.get(f"/teams/{team_id}/tags/{tag_id}")
+    assert res.status_code == 200
+    assert res.json()["id"] == tag_id
+
+
+def test_update_tag(client: TestClient) -> None:
+    """PATCH /teams/{id}/tags/{tag_id} updates tag name."""
+    _, team_id = _setup(client)
+    tag_id = _create_tag(client, team_id, "backend")
+    res = client.patch(f"/teams/{team_id}/tags/{tag_id}", json={"name": "api"})
+    assert res.status_code == 200
+    assert res.json()["name"] == "api"
+
+
 def test_attach_tag(client: TestClient) -> None:
     """POST attach tag → todo response contains the tag."""
     user_id, team_id = _setup(client)

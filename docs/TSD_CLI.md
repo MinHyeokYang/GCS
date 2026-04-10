@@ -1,107 +1,39 @@
-# TSD: Team Todo CLI Technical Spec
+# TSD - Team Todo CLI 기술 명세
 
-**언어:** 한국어 | **대상:** 개발자 · CLI 사용자 | **마지막 수정:** 2026-04-10
+업데이트: 2026-04-10
 
+## 1. 스택
+- Python 3.11+
+- Typer
+- requests
+- pytest + CliRunner
 
+## 2. 실행 규칙
+- 엔트리포인트: `python -m cli.main`
+- 기본 API 주소: `http://127.0.0.1:8000`
+- 주소 우선순위:
+1. `--base-url`
+2. `TODO_API_BASE`
+3. `~/.ttodo.json` (`config set-base-url`)
+4. 기본값
 
-## Overview
-This document specifies the technical design for a CLI that wraps the Team Todo API. It describes tools, runtime behavior, file layout, and the mapping between CLI commands and OpenAPI operations.
+## 3. 출력 모드
+- 기본: 텍스트 출력
+- 옵션: JSON 출력(`--json`)
 
-## Tools
-- Codegen: openapi-python-client (https://github.com/openapi-generators/openapi-python-client)
-- CLI framework: Typer
-- HTTP: generated client uses httpx
-- Testing: pytest, typer.testing.CliRunner
+## 4. 커맨드 매핑
+- Users: list/create/get/update/delete
+- Teams: list/create/get/update/add-member/remove-member
+- Todos: list/create/get/update/delete
+- Tags: list/create/get/update/attach/detach
+- Comments: list/create/get/update/delete
+- Config: show/set-base-url/reset
 
-## File layout
-- generated_client/  (checked-in, output of openapi-python-client)
-- cli/
-  - __main__.py
-  - main.py  (Typer app)
-- tests_cli/
-  - test_cli_integration.py
-  - test_cli_unit.py
-- docs/
-  - PRD_CLI.md
-  - TSD_CLI.md
-  - TEST_CASE_CLI.md
+## 5. 에러 처리
+- HTTP 호출 실패 시 `requests.raise_for_status()` 기반 예외 처리
+- CLI는 상태코드/오류 내용을 출력하고 종료코드 1로 종료
+- 옵션 누락 등 사용 오류는 종료코드 2
 
-## Configuration
-- Environment variables:
-  - TODO_API_BASE (default: http://127.0.0.1:8000)
-  - TODO_API_KEY
-- CLI flags override env vars; Typer Option envvar parameter used for convenience.
-
-## Command mapping (examples)
-The CLI will expose a complete mapping from commands to API endpoints. Commands are grouped by resource (users, teams, todos, tags). Below are the concrete CLI commands and which API endpoints they call. All commands accept `--base-url` and `--api-key` (or use env vars TODO_API_BASE and TODO_API_KEY).
-
-- todos list --team <team_id> [--status <open|in_progress|done>] [--priority <low|medium|high>] [--assignee <user_id>] [--tag <tag_id>]
-  - Calls: GET /teams/{team_id}/todos
-  - Description: List todos for a team; optional filters by status, priority, assignee, or tag.
-
-- todos get --team <team_id> --id <todo_id>
-  - Calls: GET /teams/{team_id}/todos/{todo_id}
-  - Description: Show a single todo's details.
-
-- todos create --team <team_id> --title <text> [--description <text>] [--assignee <user_id>] [--priority <low|medium|high>] [--due <YYYY-MM-DD>]
-  - Calls: POST /teams/{team_id}/todos
-  - Description: Create a new todo in the team.
-
-- todos update --team <team_id> --id <todo_id> [--title] [--description] [--status] [--priority] [--assignee] [--due]
-  - Calls: PATCH /teams/{team_id}/todos/{todo_id}
-  - Description: Partially update a todo. Only provided flags are changed.
-
-- todos delete --team <team_id> --id <todo_id>
-  - Calls: DELETE /teams/{team_id}/todos/{todo_id}
-  - Description: Permanently remove a todo.
-
-- tags list --team <team_id>
-  - Calls: GET /teams/{team_id}/tags
-  - Description: List tags for the given team.
-
-- tags create --team <team_id> --name <name>
-  - Calls: POST /teams/{team_id}/tags
-  - Description: Create a new tag for the team.
-
-- tags attach --team <team_id> --todo <todo_id> --tag <tag_id>
-  - Calls: POST /teams/{team_id}/todos/{todo_id}/tags/{tag_id}
-  - Description: Attach a tag to a todo.
-
-- tags detach --team <team_id> --todo <todo_id> --tag <tag_id>
-  - Calls: DELETE /teams/{team_id}/todos/{todo_id}/tags/{tag_id}
-  - Description: Detach a tag from a todo.
-
-- teams create --name <name>
-  - Calls: POST /teams
-  - Description: Create a new team.
-
-- teams get --id <team_id>
-  - Calls: GET /teams/{team_id}
-  - Description: Get details for a team.
-
-- teams add-member --team <team_id> --user <user_id>
-  - Calls: POST /teams/{team_id}/members
-  - Description: Add an existing user to a team.
-
-- teams remove-member --team <team_id> --user <user_id>
-  - Calls: DELETE /teams/{team_id}/members/{user_id}
-  - Description: Remove a user from a team.
-
-- users list
-  - Calls: GET /users
-  - Description: List all users.
-
-- users create --name <name> --email <email>
-  - Calls: POST /users
-  - Description: Create a new user.
-
-
-
-
-## Client integration notes
-- The generated client will be imported as `generated_client` and a thin wrapper function will adapt default headers (Authorization).
-- If method names from codegen differ, only cli/main.py will require minimal adaptation.
-
-## Runtime
-- CLI is a local developer tool; run via `python -m cli.main [resource] [command]` or install as console script.
-
+## 6. 테스트 전략
+- 단위 테스트: 도움말/출력/기본 명령 동작 검증
+- 통합 테스트: uvicorn 기동 후 CLI subprocess로 E2E 검증

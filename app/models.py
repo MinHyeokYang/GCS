@@ -33,6 +33,9 @@ class User(Base):
     created_todos: Mapped[list["Todo"]] = relationship(
         "Todo", foreign_keys="Todo.created_by", back_populates="creator"
     )
+    comments: Mapped[list["Comment"]] = relationship(
+        "Comment", back_populates="author", cascade="all, delete-orphan"
+    )
 
 
 class Team(Base):
@@ -113,6 +116,9 @@ class Todo(Base):
     todo_tags: Mapped[list["TodoTag"]] = relationship(
         "TodoTag", back_populates="todo", cascade="all, delete-orphan"
     )
+    comments: Mapped[list["Comment"]] = relationship(
+        "Comment", back_populates="todo", cascade="all, delete-orphan"
+    )
 
     @property
     def tags(self) -> list["Tag"]:
@@ -136,6 +142,30 @@ class Tag(Base):
     todo_tags: Mapped[list["TodoTag"]] = relationship(
         "TodoTag", back_populates="tag", cascade="all, delete-orphan"
     )
+
+
+class Comment(Base):
+    """Represents a comment on a todo item."""
+
+    __tablename__ = "comments"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    todo_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("todos.id", ondelete="CASCADE"), nullable=False
+    )
+    user_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False
+    )
+    content: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, default=_now
+    )
+    updated_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, default=_now, onupdate=_now
+    )
+
+    todo: Mapped["Todo"] = relationship("Todo", back_populates="comments")
+    author: Mapped["User"] = relationship("User", back_populates="comments")
 
 
 class TodoTag(Base):

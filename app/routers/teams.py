@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.models import Team, TeamMember, User
-from app.schemas import MemberAdd, MemberResponse, TeamCreate, TeamResponse
+from app.schemas import MemberAdd, MemberResponse, TeamCreate, TeamResponse, TeamUpdate
 
 router = APIRouter(prefix="/teams", tags=["Teams"])
 
@@ -43,6 +43,18 @@ def create_team(body: TeamCreate, db: Session = Depends(get_db)) -> Team:
 
 
 @router.get(
+    "",
+    response_model=list[TeamResponse],
+    status_code=status.HTTP_200_OK,
+    summary="List teams",
+    description="Return all teams.",
+)
+def list_teams(db: Session = Depends(get_db)) -> list[Team]:
+    """Return all teams."""
+    return db.query(Team).all()
+
+
+@router.get(
     "/{team_id}",
     response_model=TeamResponse,
     status_code=status.HTTP_200_OK,
@@ -52,6 +64,25 @@ def create_team(body: TeamCreate, db: Session = Depends(get_db)) -> Team:
 def get_team(team_id: int, db: Session = Depends(get_db)) -> Team:
     """Return a team by its ID."""
     return _get_team_or_404(team_id, db)
+
+
+@router.patch(
+    "/{team_id}",
+    response_model=TeamResponse,
+    status_code=status.HTTP_200_OK,
+    summary="Update a team",
+    description="Partially update team fields.",
+)
+def update_team(team_id: int, body: TeamUpdate, db: Session = Depends(get_db)) -> Team:
+    """Update team fields."""
+    team = _get_team_or_404(team_id, db)
+
+    for field, value in body.model_dump(exclude_unset=True).items():
+        setattr(team, field, value)
+
+    db.commit()
+    db.refresh(team)
+    return team
 
 
 @router.post(

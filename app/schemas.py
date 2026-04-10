@@ -39,6 +39,13 @@ class UserCreate(BaseModel):
     email: EmailStr = Field(..., description="Unique email address")
 
 
+class UserUpdate(BaseModel):
+    """Request body for partially updating a user."""
+
+    name: str | None = Field(None, min_length=1, max_length=100, description="Display name")
+    email: EmailStr | None = Field(None, description="Unique email address")
+
+
 class UserResponse(BaseModel):
     """Response body for a user."""
 
@@ -59,6 +66,12 @@ class TeamCreate(BaseModel):
     """Request body for creating a team."""
 
     name: str = Field(..., min_length=1, max_length=100, description="Team name")
+
+
+class TeamUpdate(BaseModel):
+    """Request body for partially updating a team."""
+
+    name: str | None = Field(None, min_length=1, max_length=100, description="Team name")
 
 
 class TeamResponse(BaseModel):
@@ -96,6 +109,14 @@ class TagCreate(BaseModel):
     """Request body for creating a tag."""
 
     name: str = Field(..., min_length=1, max_length=50, description="Tag name (unique per team)")
+
+
+class TagUpdate(BaseModel):
+    """Request body for partially updating a tag."""
+
+    name: str | None = Field(
+        None, min_length=1, max_length=50, description="Tag name (unique per team)"
+    )
 
 
 class TagResponse(BaseModel):
@@ -151,5 +172,36 @@ class TodoResponse(BaseModel):
     created_at: datetime.datetime = Field(..., description="Creation timestamp (UTC)")
     updated_at: datetime.datetime = Field(..., description="Last update timestamp (UTC)")
     tags: list[TagResponse] = Field(default_factory=list, description="Attached tags")
+
+    model_config = {"from_attributes": True}
+
+
+# ---------------------------------------------------------------------------
+# Comment
+# ---------------------------------------------------------------------------
+
+
+class CommentCreate(BaseModel):
+    """Request body for creating a comment."""
+
+    user_id: int = Field(..., description="Author user ID")
+    content: str = Field(..., min_length=1, max_length=5000, description="Comment body")
+
+
+class CommentUpdate(BaseModel):
+    """Request body for partially updating a comment."""
+
+    content: str | None = Field(None, min_length=1, max_length=5000, description="Comment body")
+
+
+class CommentResponse(BaseModel):
+    """Response body for a comment."""
+
+    id: int = Field(..., description="Comment ID")
+    todo_id: int = Field(..., description="Owning todo ID")
+    user_id: int = Field(..., description="Author user ID")
+    content: str = Field(..., description="Comment body")
+    created_at: datetime.datetime = Field(..., description="Creation timestamp (UTC)")
+    updated_at: datetime.datetime = Field(..., description="Last update timestamp (UTC)")
 
     model_config = {"from_attributes": True}

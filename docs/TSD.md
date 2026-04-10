@@ -1,159 +1,82 @@
-# TSD — Technical Specification Document
+# TSD - Team Todo 백엔드 기술 명세
 
-**언어:** 한국어 | **대상:** 개발자 | **마지막 수정:** 2026-04-10
+업데이트: 2026-04-10
 
+## 1. 기술 스택
+- Python 3.11+
+- FastAPI
+- SQLAlchemy 2.x
+- Pydantic v2
+- Alembic
+- SQLite
+- Uvicorn
 
+## 2. 로컬 개발 도구
+- 환경/실행: `uv`
+- 명령 실행: `uv run ...`
+- 단일 패키지 실행: `uvx ...`
 
-## 1. Tech Stack
-
-| 항목 | 선택 | 버전 |
-|------|------|------|
-| Language | Python | 3.11+ |
-| Framework | FastAPI | 0.111+ |
-| ORM | SQLAlchemy | 2.0+ |
-| DB | SQLite | - |
-| Migration | Alembic | 1.13+ |
-| Validation | Pydantic v2 | 2.0+ |
-| Server | Uvicorn | 0.29+ |
-
-## 2. Project Structure
-
-```
+## 3. 프로젝트 구조
+```text
 app/
-  main.py           # FastAPI 앱 진입점, 라우터 등록, Swagger 설정
-  database.py       # SQLite 연결, 세션 팩토리, Base
-  models.py         # SQLAlchemy ORM 모델
-  schemas.py        # Pydantic request/response 스키마
+  main.py
+  database.py
+  models.py
+  schemas.py
   routers/
-    users.py        # /users
-    teams.py        # /teams
-    todos.py        # /teams/{team_id}/todos
-    tags.py         # /teams/{team_id}/tags
+    users.py
+    teams.py
+    todos.py
+    tags.py
+    comments.py
+cli/
+  main.py
+  adapter.py
+tests/
 alembic/
-  env.py
-  versions/         # 마이그레이션 파일
-alembic.ini
 docs/
-  PRD.md
-  TSD.md
-  DATABASE.md
-requirements.txt
 ```
 
-## 3. Application Entry Point (`main.py`)
+## 4. 데이터 접근 규칙
+- DB URL: `TODO_DATABASE_URL` (기본값 `sqlite:///./todo.db`)
+- `get_db()` 의존성으로 세션 주입/종료
+- SQLite 연결 시 `PRAGMA foreign_keys=ON` 적용
 
-```python
-app = FastAPI(
-    title="Team Todo API",
-    version="1.0.0",
-    description="팀 단위 Todo 관리 백엔드"
-)
-```
+## 5. API 설계 원칙
+- REST 리소스 구조
+- 팀 스코프 하위 리소스(Todo/Tag/Comment) 사용
+- 요청/응답 스키마를 Pydantic으로 엄격하게 검증
+- Swagger/ReDoc/OpenAPI 자동 제공
 
-- 모든 라우터를 `include_router`로 등록
-- 테이블 생성은 `Base.metadata.create_all()` 대신 Alembic 마이그레이션으로 관리
-- `/docs` — Swagger UI
-- `/redoc` — ReDoc
+## 6. 상태코드 규칙
+- `201`: 생성 성공
+- `200`: 조회/수정 성공
+- `204`: 삭제 성공
+- `400`: 도메인 제약 위반
+- `404`: 리소스 없음
+- `409`: 충돌(삭제 제한 등)
+- `422`: 입력 검증 실패
 
-## 4. Database (`database.py`)
-
-```python
-SQLALCHEMY_DATABASE_URL = "sqlite:///./todo.db"
-
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,
-    connect_args={"check_same_thread": False}
-)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
-```
-
-- `check_same_thread=False` : FastAPI의 멀티스레드 환경 대응
-- DB 파일: 프로젝트 루트의 `todo.db`
-
-### Dependency
-
-```python
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-```
-
-## 5. Swagger 문서 품질 기준
-
-각 엔드포인트는 아래를 반드시 포함한다.
-
-| 항목 | 방법 |
-|------|------|
-| 그룹핑 | `router = APIRouter(tags=["Todos"])` |
-| 요약 | `@router.get(..., summary="Todo 목록 조회")` |
-| 설명 | docstring 또는 `description=` 파라미터 |
-| 응답 모델 | `response_model=TodoResponse` |
-| 상태 코드 | `status_code=status.HTTP_201_CREATED` |
-
-Pydantic 스키마 필드에는 `Field(description=...)` 을 추가해 Swagger에 필드 설명이 표시되도록 한다.
-
-## 6. Error Handling
-
-| 상황 | HTTP 상태 코드 |
-|------|--------------|
-| 리소스 없음 | 404 Not Found |
-| 유효성 오류 | 422 Unprocessable Entity (FastAPI 자동 처리) |
-| 생성 성공 | 201 Created |
-| 조회/수정/삭제 성공 | 200 OK |
-| 내용 없는 삭제 성공 | 204 No Content |
-
-## 7. Todo Status & Priority Enum
-
-```python
-class TodoStatus(str, Enum):
-    todo = "todo"
-    in_progress = "in_progress"
-    done = "done"
-
-class Priority(str, Enum):
-    low = "low"
-    medium = "medium"
-    high = "high"
-```
-
-## 8. Dependencies
-
-```
-fastapi
-uvicorn[standard]
-sqlalchemy
-alembic
-pydantic[email]
-```
-
-## 9. Alembic 마이그레이션
-
+## 7. 마이그레이션
 ```bash
-# 초기 설정 (최초 1회)
-alembic init alembic
-
-# 마이그레이션 파일 생성
-alembic revision --autogenerate -m "init"
-
-# 마이그레이션 적용
-alembic upgrade head
-
-# 이전 버전으로 롤백
-alembic downgrade -1
+uv run alembic upgrade head
+uv run alembic downgrade -1
 ```
 
-`alembic/env.py` 에서 `target_metadata = Base.metadata` 로 설정해야 autogenerate가 동작한다.
-
-## 10. 실행 방법
-
+## 8. 실행 절차
 ```bash
-pip install -r requirements.txt
-alembic upgrade head
-uvicorn app.main:app --reload
+uv venv
+uv sync
+uv run alembic upgrade head
+uv run uvicorn app.main:app --reload
 ```
 
-접속: http://localhost:8000/docs
+접속 URL:
+- `http://127.0.0.1:8000/docs`
+- `http://127.0.0.1:8000/redoc`
+- `http://127.0.0.1:8000/openapi.json`
+
+## 9. 테스트 전략
+- API 단위/통합: `pytest` + FastAPI `TestClient`
+- CLI E2E: uvicorn subprocess + CLI subprocess
+- 부하 테스트: `httpx` 동시성 시나리오

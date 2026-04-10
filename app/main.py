@@ -2,7 +2,7 @@
 
 from fastapi import FastAPI
 
-from app.routers import tags, teams, todos, users
+from app.routers import comments, tags, teams, todos, users
 
 app = FastAPI(
     title="Team Todo API",
@@ -17,3 +17,4 @@ app.include_router(users.router)
 app.include_router(teams.router)
 app.include_router(todos.router)
 app.include_router(tags.router)
+app.include_router(comments.router)

@@ -1,22 +1,18 @@
-## Sprint: CLI E2E tests
+## Sprint: Backend/CLI 일관성 정리
 
-### 구현 범위
-- [ ] 모델 변경
-- [ ] 스키마 추가
-- [ ] 라우터 구현
-- [x] 테스트 작성
+업데이트: 2026-04-10
 
-### 완료 기준 (Evaluator 체크리스트)
-- [ ] POST /teams/{team_id}/todos → 201 반환
-- [ ] GET /teams/{team_id}/todos → 200 + 올바른 JSON 구조
-- [ ] 존재하지 않는 리소스 → 404
-- [ ] 유효성 오류 → 422
+### 범위
+- [x] README를 사용법 중심으로 개편
+- [x] 핵심 docs(PRD/TSD/DATABASE/TEST_CASE) 톤 통일
+- [x] CLI docs(PRD_CLI/TSD_CLI/TEST_CASE_CLI) 톤 통일
+- [x] HARNESS/sprint 문서 정리
+
+### 검증 기준
+- [x] 문서 간 기술 스택/엔드포인트/용어 충돌 없음
+- [x] 실행 절차가 `uv` 기준으로 일관됨
+- [x] CLI 사용 예시가 현재 구현 옵션과 일치함
 
 ### 결과
-- Generator: tests/test_cli_integration.py 추가 (integration tests)
-- Evaluator: PENDING
-
-
-Notes:
-- Integration tests marked with @pytest.mark.integration and use a temporary sqlite file so the server subprocess and tests can share DB.
-- See docs/TEST_CASE_CLI.md for test scenarios and verification steps.
+- Generator: 문서 재작성 완료
+- Evaluator: PASS

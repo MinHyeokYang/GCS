@@ -22,6 +22,15 @@ def test_create_team(client: TestClient) -> None:
     assert "id" in data
 
 
+def test_list_teams(client: TestClient) -> None:
+    """GET /teams returns created teams."""
+    client.post("/teams", json={"name": "Dev Team"})
+    client.post("/teams", json={"name": "Ops Team"})
+    res = client.get("/teams")
+    assert res.status_code == 200
+    assert len(res.json()) == 2
+
+
 def test_get_team(client: TestClient) -> None:
     """GET /teams/{id} → 200."""
     team_id = _create_team(client)
@@ -34,6 +43,14 @@ def test_get_team_not_found(client: TestClient) -> None:
     """GET /teams/999 → 404."""
     res = client.get("/teams/999")
     assert res.status_code == 404
+
+
+def test_update_team(client: TestClient) -> None:
+    """PATCH /teams/{id} updates the team name."""
+    team_id = _create_team(client, "Legacy Team")
+    res = client.patch(f"/teams/{team_id}", json={"name": "Renamed Team"})
+    assert res.status_code == 200
+    assert res.json()["name"] == "Renamed Team"
 
 
 def test_add_member(client: TestClient) -> None:
