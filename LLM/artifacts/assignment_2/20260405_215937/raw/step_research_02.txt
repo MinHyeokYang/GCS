@@ -1,0 +1,20 @@
+﻿Usage: notebooklm [options] [command]
+System.Management.Automation.RemoteException
+CLI for Google NotebookLM
+System.Management.Automation.RemoteException
+Options:
+  -v, --version                          Show version number
+  --debug                                Enable debug logging (default: false)
+  -h, --help                             display help for command
+System.Management.Automation.RemoteException
+Commands:
+  login [options]                        Authenticate with Google NotebookLM
+  notebook                               Manage notebooks
+  source                                 Manage notebook sources
+  chat                                   Chat with a notebook
+  generate|gen                           Generate AI content
+  research                               Run web or Drive research
+  create <title>                         Create a new notebook (shortcut)
+  list|ls                                List all notebooks (shortcut)
+  ask [options] <notebookId> <question>  Ask a question (shortcut)
+  help [command]                         display help for command

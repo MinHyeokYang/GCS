@@ -1,0 +1,30 @@
+name: Notion to Snippet Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sync from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          SNIPPET_API_URL: ${{ secrets.SNIPPET_API_URL }}
+          SNIPPET_API_TOKEN: ${{ secrets.SNIPPET_API_TOKEN }}
+          SNIPPET_API_METHOD: ${{ vars.SNIPPET_API_METHOD }}
+          PAGE_TITLE: ${{ vars.PAGE_TITLE }}
+        run: node scripts/sync_notion_to_snippet.mjs

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>API 테스트 결과</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      padding: 40px 24px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: #f8fafc;
+      letter-spacing: -0.3px;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #1e293b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    thead tr {
+      background: #162032;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 11px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #475569;
+    }
+
+    tbody tr {
+      border-top: 1px solid #0f172a;
+      transition: background 0.15s;
+    }
+
+    tbody tr:hover {
+      background: #243347;
+    }
+
+    td {
+      padding: 11px 16px;
+      vertical-align: middle;
+    }
+
+    td.field {
+      color: #94a3b8;
+      width: 160px;
+      font-size: 13px;
+    }
+
+    td.value {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .badge-blue   { background: #1e3a5f; color: #60a5fa; }
+    .badge-green  { background: #14402a; color: #4ade80; }
+    .badge-yellow { background: #3d2e00; color: #fbbf24; }
+    .badge-red    { background: #3d1515; color: #f87171; }
+
+    .id-chip {
+      display: inline-block;
+      background: #334155;
+      color: #cbd5e1;
+      border-radius: 6px;
+      padding: 1px 8px;
+      font-size: 12px;
+      font-family: monospace;
+    }
+
+    .empty-tag {
+      color: #475569;
+      font-style: italic;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>API 테스트 결과</h1>
+
+  <!-- 유저 -->
+  <div class="section">
+    <div class="section-title">생성된 유저</div>
+    <table>
+      <thead>
+        <tr>
+          <th>필드</th>
+          <th>값</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="field">id</td>
+          <td class="value"><span class="id-chip">1</span></td>
+        </tr>
+        <tr>
+          <td class="field">name</td>
+          <td class="value">김테스트</td>
+        </tr>
+        <tr>
+          <td class="field">email</td>
+          <td class="value">test@example.com</td>
+        </tr>
+        <tr>
+          <td class="field">created_at</td>
+          <td class="value">2026-04-02T08:44:41</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Todo -->
+  <div class="section">
+    <div class="section-title">생성된 Todo</div>
+    <table>
+      <thead>
+        <tr>
+          <th>필드</th>
+          <th>값</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="field">id</td>
+          <td class="value"><span class="id-chip">1</span></td>
+        </tr>
+        <tr>
+          <td class="field">title</td>
+          <td class="value">API 문서 작성</td>
+        </tr>
+        <tr>
+          <td class="field">description</td>
+          <td class="value">팀 Todo 백엔드 API 명세서 작성</td>
+        </tr>
+        <tr>
+          <td class="field">status</td>
+          <td class="value">
+            <span class="badge badge-blue">in_progress</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="field">priority</td>
+          <td class="value">
+            <span class="badge badge-red">high</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="field">due_date</td>
+          <td class="value">2026-04-10</td>
+        </tr>
+        <tr>
+          <td class="field">assignee_id</td>
+          <td class="value">1 &nbsp;<span style="color:#64748b;font-size:13px">(김테스트)</span></td>
+        </tr>
+        <tr>
+          <td class="field">created_by</td>
+          <td class="value">1 &nbsp;<span style="color:#64748b;font-size:13px">(김테스트)</span></td>
+        </tr>
+        <tr>
+          <td class="field">created_at</td>
+          <td class="value">2026-04-02T08:44:46</td>
+        </tr>
+        <tr>
+          <td class="field">tags</td>
+          <td class="value"><span class="empty-tag">없음</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

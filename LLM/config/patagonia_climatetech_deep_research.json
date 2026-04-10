@@ -1,0 +1,45 @@
+{
+  "topic": "Patagonia Mission-Aligned Climate Tech Priorities",
+  "subtitle": "Red-Team vs Blue-Team 3-Round Debate",
+  "language": "ko-KR",
+  "notebook_title": "Task2 - Patagonia Mission-Aligned Climate Tech",
+  "sources": {
+    "urls": [],
+    "files": []
+  },
+  "research": {
+    "queries": [
+      "Patagonia purpose 'We're in business to save our home planet' and 2022 ownership structure (Patagonia Purpose Trust, Holdfast Collective): implications for strategic capital allocation and climate action priorities",
+      "Climate tech opportunities most aligned with Patagonia values in apparel/outdoor value chains: durability, repair infrastructure, circular business models, textile-to-textile recycling, regenerative agriculture, and Scope 3 decarbonization",
+      "Business feasibility and risk of mission-aligned climate tech bets for Patagonia over 3 years: unit economics, adoption barriers, regulatory constraints, measurement frameworks, and execution roadmap"
+    ],
+    "mode": "deep",
+    "auto_import": true,
+    "timeout_ms": 900000
+  },
+  "debate": {
+    "rounds": 3,
+    "personas": [
+      {
+        "name": "Red-Team",
+        "role": "Mission Growth Advocate",
+        "focus": "Mission impact, category leadership, and scalable adoption"
+      },
+      {
+        "name": "Blue-Team",
+        "role": "Risk and Feasibility Skeptic",
+        "focus": "Economics, implementation risk, and unintended consequences"
+      },
+      {
+        "name": "Moderator",
+        "role": "Decision Facilitator",
+        "focus": "Evidence quality, synthesis, and decision criteria"
+      }
+    ]
+  },
+  "presentation": {
+    "report_format": "briefing",
+    "slide_format": "presenter",
+    "slide_length": "default"
+  }
+}

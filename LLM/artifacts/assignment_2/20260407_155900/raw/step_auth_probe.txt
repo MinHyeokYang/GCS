@@ -1,0 +1,23 @@
+﻿[2026-04-07T06:59:00.912Z] [INFO] [client] NotebookLMClient initialized
+⠋ Fetching notebooks...
+⠙ Fetching notebooks...
+⠹ Fetching notebooks...
+⠸ Fetching notebooks...
+⠼ Fetching notebooks...
+⠴ Fetching notebooks...
+⠦ Fetching notebooks...
+                       
+Found 10 notebook(s):
+
+ID           Title                                     Sources  Updated              
+-------------------------------------------------------------------------------------
+207e06ae...  Task2 - Marriage Information Company ...  50       Apr 7, 2026, 03:59 PM
+150fb86b...  The Responsible Company: Patagonia’s ...  1        Apr 7, 2026, 03:59 PM
+fd54842a...  GCS Day3 Auto Debate + Presentation 2...  10       Apr 7, 2026, 03:59 PM
+d4339edc...  GCS Day3 Auto Debate + Presentation 2...  8        Apr 7, 2026, 03:59 PM
+3e2354bc...  GCS Day3 Auto Debate + Presentation 2...  9        Apr 7, 2026, 03:59 PM
+d506f31e...  GCS Bootcamp Research Debate Landing      0        Apr 7, 2026, 03:59 PM
+9c0043d2...  Task2 - The AI OOO                        30       Apr 7, 2026, 03:59 PM
+79e28591...  Task2 - The AI OOO                        29       Apr 7, 2026, 03:59 PM
+1848eff9...  Task2 - The AI OOO                        0        Apr 7, 2026, 03:59 PM
+69b99514...  Global Agri-Food Innovation: Trends, ...  110      Apr 7, 2026, 03:59 PM

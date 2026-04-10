@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "exa": {
+      "baseUrl": "https://mcp.exa.ai/mcp"
+    },
+    "gcs-pulse-bridge": {
+      "command": "node",
+      "args": [
+        "C:\\minhyeok\\GCS\\scripts\\gcs_pulse_mcp_bridge.mjs"
+      ],
+      "env": {
+        "GCS_PULSE_API_BASE_URL": "https://api.1000.school",
+        "GCS_PULSE_TOKEN": "jbJS57SV1iWy4QzHEil0WcL1XTFSEuZUuKAORmnRue0"
+      }
+    }
+  }
+}

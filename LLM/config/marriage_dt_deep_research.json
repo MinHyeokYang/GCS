@@ -1,0 +1,45 @@
+{
+  "topic": "Digital Transformation Feasibility for Marriage Information Companies",
+  "subtitle": "NotebookLM Deep Research Debate",
+  "language": "ko-KR",
+  "notebook_title": "Task2 - Marriage Information Company Digital Transformation",
+  "sources": {
+    "urls": [],
+    "files": []
+  },
+  "research": {
+    "queries": [
+      "Global and Korean marriage information companies and dating services: digital transformation cases, business model shifts, and success factors",
+      "AI matching, identity verification, fraud prevention, privacy regulation, and compliance risks in marriage information and matchmaking businesses",
+      "Three-year digital transformation roadmap and KPI design for marriage information companies: match success rate, CAC, LTV, NPS, counselor productivity"
+    ],
+    "mode": "deep",
+    "auto_import": true,
+    "timeout_ms": 900000
+  },
+  "debate": {
+    "rounds": 3,
+    "personas": [
+      {
+        "name": "Red-Team",
+        "role": "Transformation Advocate",
+        "focus": "Market opportunity, growth, and execution speed"
+      },
+      {
+        "name": "Blue-Team",
+        "role": "Risk and Feasibility Skeptic",
+        "focus": "Constraints, regulation, cost, and downside risks"
+      },
+      {
+        "name": "Moderator",
+        "role": "Decision Facilitator",
+        "focus": "Evidence quality, synthesis, and action planning"
+      }
+    ]
+  },
+  "presentation": {
+    "report_format": "briefing",
+    "slide_format": "presenter",
+    "slide_length": "default"
+  }
+}

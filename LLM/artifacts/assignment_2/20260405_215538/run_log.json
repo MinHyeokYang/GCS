@@ -1,0 +1,13 @@
+﻿{
+    "run_id":  "20260405_215538",
+    "started_at":  "2026-04-05T21:55:38.1016631+09:00",
+    "config_path":  "C:\\minhyeok\\GCS\\config\\assignment_2.input.json",
+    "topic":  "The AI OOO",
+    "notebook_id":  null,
+    "status":  "failed",
+    "steps":  [
+
+              ],
+    "failed_at":  "2026-04-05T21:55:38.5023704+09:00",
+    "error":  "NotebookLM is not authenticated. Run: notebooklm.cmd login, then press Enter in terminal after NotebookLM home page appears."
+}

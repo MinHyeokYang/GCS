@@ -1,0 +1,44 @@
+﻿{
+    "config_path":  "C:\\minhyeok\\GCS\\LLM\\config\\marriage_dt_deep_research.json",
+    "run_id":  "20260407_153309",
+    "topic":  "Digital Transformation Feasibility for Marriage Information Companies",
+    "started_at":  "2026-04-07T15:33:09.6633410+09:00",
+    "status":  "failed",
+    "steps":  [
+                  {
+                      "step":  "prereq_tools",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "",
+                      "message":  "claude.cmd + notebooklm.cmd detected",
+                      "at":  "2026-04-07T15:33:09.6869064+09:00"
+                  },
+                  {
+                      "step":  "auth_probe",
+                      "status":  "ok",
+                      "duration_ms":  1688,
+                      "output_file":  "artifacts\\assignment_2\\20260407_153309\\raw\\step_auth_probe.txt",
+                      "message":  "",
+                      "at":  "2026-04-07T15:33:11.4693400+09:00"
+                  },
+                  {
+                      "step":  "create_notebook",
+                      "status":  "ok",
+                      "duration_ms":  1734,
+                      "output_file":  "artifacts\\assignment_2\\20260407_153309\\raw\\step_create_notebook.txt",
+                      "message":  "207e06ae-350a-4fc7-9ee0-ac8ac3fa46d4",
+                      "at":  "2026-04-07T15:33:13.2398679+09:00"
+                  },
+                  {
+                      "step":  "research_01",
+                      "status":  "ok",
+                      "duration_ms":  384266,
+                      "output_file":  "artifacts\\assignment_2\\20260407_153309\\raw\\step_research_01.txt",
+                      "message":  "Global and Korean marriage information companies and dating services: digital transformation cases, business model shifts, and success factors",
+                      "at":  "2026-04-07T15:39:37.5697077+09:00"
+                  }
+              ],
+    "error":  "Exception calling \"Match\" with \"2\" argument(s): \"parsing \"(?s)??Research complete\\s*(.+)$\" - Quantifier {x,y} following nothing.\"",
+    "failed_at":  "2026-04-07T15:39:37.6327982+09:00",
+    "notebook_id":  "207e06ae-350a-4fc7-9ee0-ac8ac3fa46d4"
+}

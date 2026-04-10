@@ -1,0 +1,107 @@
+﻿{
+    "config_path":  "C:\\minhyeok\\GCS\\config\\assignment_2.input.json",
+    "run_id":  "20260405_222500",
+    "topic":  "The AI OOO",
+    "started_at":  "2026-04-05T22:25:00.8296076+09:00",
+    "status":  "completed",
+    "steps":  [
+                  {
+                      "step":  "prereq_tools",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "",
+                      "message":  "claude.cmd + notebooklm.cmd detected",
+                      "at":  "2026-04-05T22:25:00.8832464+09:00"
+                  },
+                  {
+                      "step":  "auth_probe",
+                      "status":  "ok",
+                      "duration_ms":  1319,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\raw\\step_auth_probe.txt",
+                      "message":  "",
+                      "at":  "2026-04-05T22:25:02.3668637+09:00"
+                  },
+                  {
+                      "step":  "create_notebook",
+                      "status":  "ok",
+                      "duration_ms":  1675,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\raw\\step_create_notebook.txt",
+                      "message":  "9c0043d2-6bda-4750-92b1-bd60b822fcc1",
+                      "at":  "2026-04-05T22:25:04.1012848+09:00"
+                  },
+                  {
+                      "step":  "research_01",
+                      "status":  "ok",
+                      "duration_ms":  95875,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\raw\\step_research_01.txt",
+                      "message":  "The AI OOO latest trends and key risks",
+                      "at":  "2026-04-05T22:26:40.0089832+09:00"
+                  },
+                  {
+                      "step":  "research_02",
+                      "status":  "ok",
+                      "duration_ms":  64781,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\raw\\step_research_02.txt",
+                      "message":  "The AI OOO practical adoption cases in education",
+                      "at":  "2026-04-05T22:27:44.9105209+09:00"
+                  },
+                  {
+                      "step":  "research_03",
+                      "status":  "ok",
+                      "duration_ms":  33864,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\raw\\step_research_03.txt",
+                      "message":  "The AI OOO opportunities vs governance concerns",
+                      "at":  "2026-04-05T22:28:18.7825397+09:00"
+                  },
+                  {
+                      "step":  "write_research_md",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\research.md",
+                      "message":  "",
+                      "at":  "2026-04-05T22:28:18.8347030+09:00"
+                  },
+                  {
+                      "step":  "generate_debate_md",
+                      "status":  "ok",
+                      "duration_ms":  77157,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\debate.md",
+                      "message":  "",
+                      "at":  "2026-04-05T22:29:36.1463256+09:00"
+                  },
+                  {
+                      "step":  "generate_report",
+                      "status":  "fallback",
+                      "duration_ms":  654965,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\final_report.md",
+                      "message":  "Artifact ID missing from NotebookLM generate report",
+                      "at":  "2026-04-05T22:40:31.1492887+09:00"
+                  },
+                  {
+                      "step":  "generate_slide_deck",
+                      "status":  "fallback",
+                      "duration_ms":  658982,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\final_slide_deck.md",
+                      "message":  "Artifact ID missing from NotebookLM generate slide-deck",
+                      "at":  "2026-04-05T22:51:30.1654329+09:00"
+                  },
+                  {
+                      "step":  "write_final_presentation",
+                      "status":  "ok",
+                      "duration_ms":  77262,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\final_presentation.md",
+                      "message":  "",
+                      "at":  "2026-04-05T22:52:47.4443780+09:00"
+                  },
+                  {
+                      "step":  "write_references",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "artifacts\\assignment_2\\20260405_222500\\references.md",
+                      "message":  "",
+                      "at":  "2026-04-05T22:52:47.5045816+09:00"
+                  }
+              ],
+    "completed_at":  "2026-04-05T22:52:47.5059935+09:00",
+    "notebook_id":  "9c0043d2-6bda-4750-92b1-bd60b822fcc1"
+}

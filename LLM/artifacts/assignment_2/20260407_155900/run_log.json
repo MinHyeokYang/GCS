@@ -1,0 +1,92 @@
+﻿{
+    "config_path":  "C:\\minhyeok\\GCS\\LLM\\config\\marriage_dt_deep_research.json",
+    "run_id":  "20260407_155900",
+    "topic":  "Digital Transformation Feasibility for Marriage Information Companies",
+    "started_at":  "2026-04-07T15:59:00.1219576+09:00",
+    "status":  "failed",
+    "steps":  [
+                  {
+                      "step":  "prereq_tools",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "",
+                      "message":  "claude.cmd + notebooklm.cmd detected",
+                      "at":  "2026-04-07T15:59:00.1440006+09:00"
+                  },
+                  {
+                      "step":  "auth_probe",
+                      "status":  "ok",
+                      "duration_ms":  1370,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\raw\\step_auth_probe.txt",
+                      "message":  "",
+                      "at":  "2026-04-07T15:59:01.5966722+09:00"
+                  },
+                  {
+                      "step":  "create_notebook",
+                      "status":  "ok",
+                      "duration_ms":  1734,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\raw\\step_create_notebook.txt",
+                      "message":  "7f1ebbcc-4a00-4c71-a41f-4f2f36365a28",
+                      "at":  "2026-04-07T15:59:03.3689638+09:00"
+                  },
+                  {
+                      "step":  "research_01",
+                      "status":  "ok",
+                      "duration_ms":  375364,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\raw\\step_research_01.txt",
+                      "message":  "Global and Korean marriage information companies and dating services: digital transformation cases, business model shifts, and success factors",
+                      "at":  "2026-04-07T16:05:18.7803361+09:00"
+                  },
+                  {
+                      "step":  "research_02",
+                      "status":  "ok",
+                      "duration_ms":  241736,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\raw\\step_research_02.txt",
+                      "message":  "AI matching, identity verification, fraud prevention, privacy regulation, and compliance risks in marriage information and matchmaking businesses",
+                      "at":  "2026-04-07T16:09:20.5524553+09:00"
+                  },
+                  {
+                      "step":  "research_03",
+                      "status":  "ok",
+                      "duration_ms":  255896,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\raw\\step_research_03.txt",
+                      "message":  "Three-year digital transformation roadmap and KPI design for marriage information companies: match success rate, CAC, LTV, NPS, counselor productivity",
+                      "at":  "2026-04-07T16:13:36.4830753+09:00"
+                  },
+                  {
+                      "step":  "write_research_md",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\research.md",
+                      "message":  "",
+                      "at":  "2026-04-07T16:13:36.5452708+09:00"
+                  },
+                  {
+                      "step":  "generate_debate_md",
+                      "status":  "ok",
+                      "duration_ms":  83517,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\debate.md",
+                      "message":  "",
+                      "at":  "2026-04-07T16:15:00.1896960+09:00"
+                  },
+                  {
+                      "step":  "generate_report",
+                      "status":  "fallback",
+                      "duration_ms":  645945,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\final_report.md",
+                      "message":  "Artifact ID missing from NotebookLM generate report",
+                      "at":  "2026-04-07T16:25:46.2411804+09:00"
+                  },
+                  {
+                      "step":  "generate_slide_deck",
+                      "status":  "fallback",
+                      "duration_ms":  666763,
+                      "output_file":  "artifacts\\assignment_2\\20260407_155900\\final_slide_deck.md",
+                      "message":  "Artifact ID missing from NotebookLM generate slide-deck",
+                      "at":  "2026-04-07T16:36:53.0908618+09:00"
+                  }
+              ],
+    "error":  "Exception calling \"Matches\" with \"2\" argument(s): \"parsing \"[媛-??\" - Unterminated [] set.\"",
+    "failed_at":  "2026-04-07T16:36:53.2085898+09:00",
+    "notebook_id":  "7f1ebbcc-4a00-4c71-a41f-4f2f36365a28"
+}

@@ -1,0 +1,68 @@
+﻿{
+    "config_path":  "C:\\minhyeok\\GCS\\config\\assignment_2.input.json",
+    "run_id":  "20260405_221727",
+    "topic":  "The AI OOO",
+    "started_at":  "2026-04-05T22:17:27.2372589+09:00",
+    "status":  "failed",
+    "steps":  [
+                  {
+                      "step":  "prereq_tools",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "",
+                      "message":  "claude.cmd + notebooklm.cmd detected",
+                      "at":  "2026-04-05T22:17:27.2892586+09:00"
+                  },
+                  {
+                      "step":  "auth_probe",
+                      "status":  "ok",
+                      "duration_ms":  1374,
+                      "output_file":  "artifacts\\assignment_2\\20260405_221727\\raw\\step_auth_probe.txt",
+                      "message":  "",
+                      "at":  "2026-04-05T22:17:28.8233936+09:00"
+                  },
+                  {
+                      "step":  "create_notebook",
+                      "status":  "ok",
+                      "duration_ms":  1718,
+                      "output_file":  "artifacts\\assignment_2\\20260405_221727\\raw\\step_create_notebook.txt",
+                      "message":  "79e28591-ef41-4ccc-a62d-d85f21fc4f0f",
+                      "at":  "2026-04-05T22:17:30.5916103+09:00"
+                  },
+                  {
+                      "step":  "research_01",
+                      "status":  "ok",
+                      "duration_ms":  40605,
+                      "output_file":  "artifacts\\assignment_2\\20260405_221727\\raw\\step_research_01.txt",
+                      "message":  "The AI OOO latest trends and key risks",
+                      "at":  "2026-04-05T22:18:11.2246774+09:00"
+                  },
+                  {
+                      "step":  "research_02",
+                      "status":  "ok",
+                      "duration_ms":  22095,
+                      "output_file":  "artifacts\\assignment_2\\20260405_221727\\raw\\step_research_02.txt",
+                      "message":  "The AI OOO practical adoption cases in education",
+                      "at":  "2026-04-05T22:18:33.3272887+09:00"
+                  },
+                  {
+                      "step":  "research_03",
+                      "status":  "ok",
+                      "duration_ms":  43191,
+                      "output_file":  "artifacts\\assignment_2\\20260405_221727\\raw\\step_research_03.txt",
+                      "message":  "The AI OOO opportunities vs governance concerns",
+                      "at":  "2026-04-05T22:19:16.5416869+09:00"
+                  },
+                  {
+                      "step":  "write_research_md",
+                      "status":  "ok",
+                      "duration_ms":  0,
+                      "output_file":  "artifacts\\assignment_2\\20260405_221727\\research.md",
+                      "message":  "",
+                      "at":  "2026-04-05T22:19:16.5734590+09:00"
+                  }
+              ],
+    "error":  "Claude debate generation failed (exit=1): The command line is too long.",
+    "failed_at":  "2026-04-05T22:19:16.7144928+09:00",
+    "notebook_id":  "79e28591-ef41-4ccc-a62d-d85f21fc4f0f"
+}
