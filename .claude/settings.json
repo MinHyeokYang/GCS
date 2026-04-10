@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -m ruff check --fix --force-exclude \"$CLAUDE_TOOL_INPUT_FILE_PATH\" 2>&1 || true"
+          },
+          {
+            "type": "command",
+            "command": "python -m ruff format \"$CLAUDE_TOOL_INPUT_FILE_PATH\" 2>&1 || true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[Harness] Bash command: $CLAUDE_TOOL_INPUT_COMMAND\""
+          }
+        ]
+      }
+    ]
+  }
+}

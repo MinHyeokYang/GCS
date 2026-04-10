@@ -1,5 +1,9 @@
 # TSD — Technical Specification Document
 
+**언어:** 한국어 | **대상:** 개발자 | **마지막 수정:** 2026-04-10
+
+
+
 ## 1. Tech Stack
 
 | 항목 | 선택 | 버전 |

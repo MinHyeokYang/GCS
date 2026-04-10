@@ -1,5 +1,9 @@
 # TEST_CASE — Team Todo API
 
+**언어:** 한국어 | **대상:** 개발자 | **마지막 수정:** 2026-04-10
+
+
+
 > PRD의 Functional Requirements(F-01 ~ F-07) 기반으로 작성.
 > 각 케이스는 `endpoint / request / expected response` 를 포함하며 체크리스트 형태로 정리.
 

@@ -1,5 +1,9 @@
 # DATABASE.md — Database Design
 
+**언어:** 한국어 | **대상:** 개발자 | **마지막 수정:** 2026-04-10
+
+
+
 ## 1. Overview
 
 - DBMS: SQLite

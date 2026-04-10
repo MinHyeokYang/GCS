@@ -1,88 +1,70 @@
-﻿# LLM_HW - GCS 몰입캠프 과제 제출
+# Team Todo API
 
-이 저장소는 아래 3개 과제 실행 결과를 담고 있습니다.
+간단 사용법 중심 README — 팀 단위 Todo 관리 백엔드 (FastAPI + SQLAlchemy + SQLite)
 
-1. `1.1` GCS-PULSE를 MCP/CLI로 각각 연결해 토큰 사용량과 경험 비교  
-2. `1.2` GCS-PULSE CLI + GWS CLI로 회의실 예약/구글캘린더/초대메일 자동화 Skill 구현  
-3. `2` NotebookLM 기반 AI Agent 토론 + 최종 발표자료 자동 생성
+언어: 한국어
 
----
+## 빠른 시작
 
-## 1.1) MCP vs CLI 비교
+1. 의존성 설치
 
-### 실행 스크립트
-- `scripts/run_assignment_1_1_compare.ps1`
-
-### 핵심 구성 파일
-- `scripts/gcs_pulse_cli_snippet.ps1`
-- `scripts/gcs_pulse_mcp_bridge.mjs`
-
-### 산출물
-- `artifacts/assignment_1_1/raw_results.json`
-- `artifacts/assignment_1_1/compare_report.md`
-
----
-
-## 1.2) GCS-PULSE + GWS 통합 Skill
-
-### 실행 스크립트
-- `scripts/gcs_pulse_gws_skill.ps1`
-
-### Skill 문서
-- `skills/Skill.md`
-
-### 산출물
-- `artifacts/assignment_1_2/report.md`
-- `artifacts/assignment_1_2/real_run_after_auth.json` (실행 성공 로그)
-- `artifacts/assignment_1_2/dry_run_20260406.json` (최신 드라이런 로그)
-
----
-
-## 2) NotebookLM 자동 토론 + 발표자료
-
-### 자동화 스크립트
-- `scripts/run_assignment_2_notebooklm_auto.ps1`
-
-### 입력/보조 파일
-- `artifacts/ai_debate_landing/pdf_text/*.txt` (연구자료 텍스트화)
-- `artifacts/ai_debate_landing/debate_data.json`
-
-### 주요 산출물
-- `artifacts/assignment_2/20260406_notebooklm_auto_demo/notebooklm_debate.md`
-- `artifacts/assignment_2/20260406_notebooklm_auto_demo/notebooklm_final_presentation.md`
-- `artifacts/assignment_2/20260406_notebooklm_auto_demo/run_log.json`
-
-수동 생성본:
-- `artifacts/assignment_2/20260406_notebooklm/`
-
----
-
-## 최종 통합 보고서
-
-- `artifacts/final_submission_20260406.md`
-
----
-
-## 실행 예시
-
-### 1.1 실행
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_assignment_1_1_compare.ps1
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .\.venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### 1.2 실행 (실사용)
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/gcs_pulse_gws_skill.ps1 `
-  -StartAt "2026-04-12T10:00:00+09:00" `
-  -EndAt "2026-04-12T11:00:00+09:00" `
-  -Title "Assignment 1.2 Real Run" `
-  -Room "N.MR1" `
-  -Attendees "your@email.com" `
-  -Purpose "Assignment 1.2" `
-  -SendInviteEmail
+2. 데이터베이스 마이그레이션
+
+```bash
+alembic upgrade head
 ```
 
-### 2번 자동 실행
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_assignment_2_notebooklm_auto.ps1
+3. 개발 서버 실행
+
+```bash
+uvicorn app.main:app --reload
 ```
+
+4. API 문서 (Swagger)
+
+브라우저에서: http://localhost:8000/docs
+
+## 주요 엔드포인트 (요약)
+
+- POST /users — 유저 생성
+- GET /users — 유저 목록
+- POST /teams — 팀 생성
+- POST /teams/{team_id}/todos — Todo 생성
+- GET /teams/{team_id}/todos — Todo 목록 조회 (status, priority, assignee, tag 필터)
+
+자세한 API 명세는 docs/PRD.md 및 app/routers/*.py를 참조하세요.
+
+## DB & 마이그레이션
+
+- SQLite 파일: todo.db (프로젝트 루트)
+- 마이그레이션 도구: Alembic (alembic/ 폴더)
+
+## 테스트
+
+```bash
+pip install -r requirements-dev.txt
+pytest tests/
+```
+
+## 개발 규칙
+
+- Linter: ruff check --fix
+- Formatter: ruff format
+- Type checking: mypy --strict
+- 모든 엔드포인트는 response_model, summary, status_code 명시
+
+## 컨트리뷰팅 / 스프린트
+
+- Sprint Contract 작성: docs/sprint_current.md
+- Generator → Evaluator 워크플로우: docs/HARNESS.md
+
+## 문제 보고 및 연락
+
+유지보수자: MinHyeokYang
+
